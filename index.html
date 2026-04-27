@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infocera IT - Corporate Test</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  
+
+  <!-- Fonts (same as live site) -->
+  <link rel="preconnect" href="../fonts.googleapis.com/index.html">
+  <link rel="preconnect" href="../fonts.gstatic.com/index.html" crossorigin>
+  <link href="../fonts.googleapis.com/css2c196.css?family=Orbitron:wght@700&amp;display=swap" rel="stylesheet">
+  <link href="../fonts.googleapis.com/css255ef.css?family=Exo:wght@700&amp;display=swap" rel="stylesheet">
+  <link href="../fonts.googleapis.com/css2046d.css?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+  <!-- Removed the React JS bundle so it doesn't try to mount logic, kept CSS for base styles -->
+  <link rel="stylesheet" crossorigin href="assets/index-CQMqLKVC.css">
+
+  <!-- DO NOT load patch_navbar.js — we embed the exact navbar from Infoceranew.html below -->
+
+  <style>
+    /* ===== DROPDOWN LINK STYLES ===== */
+    .dd-link { display:block; padding:6px 0; font-size:13px; color:#cbd5e1; text-decoration:none; transition:color 0.2s; position:relative; padding-left:14px; }
+    .dd-link::before { content:'●'; position:absolute; left:0; color:#4f46e5; font-size:8px; top:50%; transform:translateY(-50%); }
+    .dd-link:hover { color:#fff; }
+
+    /* (Legacy React Hiding removed as page is now fully static) */
+
+    /* ===== GLOBAL ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin:0; padding:0; min-height:100vh; background:#0a1628 !important; font-family:'Inter',system-ui,-apple-system,sans-serif; color:#fff; -webkit-font-smoothing:antialiased; }
+
+    /* Mobile menu */
+    #mobile-menu { display:none !important; opacity:0; pointer-events:none; transition:opacity 0.2s; }
+    #mobile-menu.active { display:block !important; opacity:1 !important; visibility:visible !important; pointer-events:auto !important; background:#0f172a !important; z-index:1000000 !important; }
+    .mob-link:hover { background:rgba(255,255,255,0.05); }
+    #mobile-menu-btn { touch-action:manipulation; }
+    #mobile-menu-btn svg { pointer-events:none; }
+
+    /* ===== SECTION CONTAINER ===== */
+    .corp-section { max-width:1200px; margin:0 auto; padding:0 24px; }
+    @media(max-width:768px) { .corp-section { padding:0 16px; } }
+
+    /* ===== HERO ===== */
+    .hero { padding:160px 0 100px; background:#0a1628; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; top:0; right:0; width:45%; height:100%; background:linear-gradient(135deg, #0f2847 0%, #0a1628 100%); clip-path:polygon(15% 0, 100% 0, 100% 100%, 0 100%); z-index:0; }
+    .hero .corp-section { position:relative; z-index:1; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 20px; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.25); border-radius:100px; font-size:13px; font-weight:600; color:#60a5fa; letter-spacing:0.5px; margin-bottom:32px; }
+    .hero-badge::before { content:''; width:8px; height:8px; background:#2563eb; border-radius:50%; }
+    .hero h1 { font-size:clamp(2.5rem, 5vw, 4rem); font-weight:900; line-height:1.1; color:#fff; margin:0 0 24px; max-width:680px; letter-spacing:-1px; }
+    .hero h1 span { color:#2563eb; }
+    .hero-sub { font-size:1.2rem; color:#94a3b8; line-height:1.7; max-width:540px; margin:0 0 48px; }
+    .hero-actions { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:80px; }
+    .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:#2563eb; color:#fff; font-size:15px; font-weight:700; border:none; border-radius:8px; cursor:pointer; text-decoration:none; transition:background 0.2s, transform 0.15s; letter-spacing:0.3px; }
+    .btn-primary:hover { background:#1d4ed8; transform:translateY(-1px); }
+    .btn-secondary { display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:transparent; color:#fff; font-size:15px; font-weight:600; border:2px solid #334155; border-radius:8px; cursor:pointer; text-decoration:none; transition:border-color 0.2s, background 0.2s; }
+    .btn-secondary:hover { border-color:#475569; background:rgba(255,255,255,0.03); }
+    .hero-stats { display:grid; grid-template-columns:repeat(4, 1fr); gap:0; border-top:1px solid #1e293b; }
+    .stat-item { padding:32px 0; border-right:1px solid #1e293b; text-align:center; }
+    .stat-item:last-child { border-right:none; }
+    .stat-num { font-size:2.5rem; font-weight:900; color:#fff; margin-bottom:4px; letter-spacing:-1px; }
+    .stat-num span { color:#2563eb; }
+    .stat-label { font-size:13px; color:#64748b; font-weight:500; text-transform:uppercase; letter-spacing:1.5px; }
+    @media(max-width:768px) {
+      .hero { padding:120px 0 60px; }
+      .hero::before { display:none; }
+      .hero h1 { font-size:2rem; }
+      .hero-sub { font-size:1rem; }
+      .hero-stats { grid-template-columns:repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right:none; }
+      .stat-item { padding:20px 0; }
+      .stat-num { font-size:1.8rem; }
+      .hero-actions { flex-direction:column; }
+      .btn-primary, .btn-secondary { width:100%; justify-content:center; }
+    }
+
+    /* ===== TECH STACK ===== */
+    .tech-section { padding:140px 0; background:#0f172a; }
+    .section-header { text-align:center; margin-bottom:64px; }
+    .section-label { display:inline-block; font-size:12px; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:3px; margin-bottom:16px; }
+    .section-title { font-size:clamp(1.8rem, 3.5vw, 2.8rem); font-weight:800; color:#fff; margin:0 0 16px; letter-spacing:-0.5px; }
+    .section-desc { font-size:1.05rem; color:#64748b; max-width:560px; margin:0 auto; line-height:1.7; }
+    .tech-grid { display:grid; grid-template-columns:repeat(6, 1fr); gap:20px; }
+    .tech-card { background:#111c32; border:1px solid #1e293b; border-radius:12px; padding:32px 16px; display:flex; flex-direction:column; align-items:center; gap:16px; transition:border-color 0.2s, transform 0.15s; cursor:default; }
+    .tech-card:hover { border-color:#2563eb; transform:translateY(-3px); }
+    .tech-card svg, .tech-card img { width:40px; height:40px; }
+    .tech-card-icon { width:48px; height:48px; display:flex; align-items:center; justify-content:center; background:rgba(37,99,235,0.08); border-radius:10px; color:#60a5fa; font-size:22px; font-weight:800; }
+    .tech-card-name { font-size:13px; font-weight:600; color:#cbd5e1; text-align:center; }
+    @media(max-width:1024px) { .tech-grid { grid-template-columns:repeat(4, 1fr); } }
+    @media(max-width:640px) { .tech-grid { grid-template-columns:repeat(3, 1fr); gap:12px; } .tech-card { padding:20px 12px; } }
+
+    /* ===== SERVICES ===== */
+    .services-section { padding:140px 0; background:#0a1628; }
+    .services-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:24px; }
+    .service-card { background:rgba(17,28,50,0.5); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border:1px solid #1e293b; border-radius:16px; padding:40px 32px; transition:all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position:relative; overflow:hidden; z-index:1; }
+    .service-card:hover { border-color:rgba(59,130,246,0.3); transform:translateY(-8px); box-shadow:0 30px 60px -15px rgba(37,99,235,0.15); background:rgba(17,28,50,0.8); }
+    .service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg, #3b82f6, #8b5cf6); transform:scaleX(0); transition:transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform-origin:left; }
+    .service-card:hover::before { transform:scaleX(1); }
+    .service-icon { width:60px; height:60px; background:linear-gradient(135deg, rgba(37,99,235,0.15), rgba(99,102,241,0.05)); border:1px solid rgba(59,130,246,0.1); border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:28px; color:#60a5fa; box-shadow:inset 0 1px 1px rgba(255,255,255,0.05); }
+    .service-card h3 { font-size:1.1rem; font-weight:700; color:#fff; margin:0 0 12px; }
+    .service-card p { font-size:0.9rem; color:#64748b; line-height:1.65; margin:0 0 20px; }
+    .service-link { font-size:13px; font-weight:600; color:#2563eb; text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:gap 0.2s; }
+    .service-link:hover { gap:10px; }
+    @media(max-width:1024px) { .services-grid { grid-template-columns:repeat(2, 1fr); } }
+    @media(max-width:640px) { .services-grid { grid-template-columns:1fr; } .service-card { padding:28px 20px; } }
+
+    /* ===== INSIGHTS ===== */
+    .insights-section { padding:140px 0; background:#0f172a; }
+    .insights-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; }
+    .insight-card { background:#111c32; border:1px solid #1e293b; border-radius:12px; overflow:hidden; transition:border-color 0.25s, transform 0.15s; }
+    .insight-card:hover { border-color:#2563eb; transform:translateY(-3px); }
+    .insight-img { width:100%; height:200px; background:#1e293b; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .insight-img svg { width:48px; height:48px; color:#334155; }
+    .insight-body { padding:28px; }
+    .insight-tag { display:inline-block; font-size:11px; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:12px; }
+    .insight-card h3 { font-size:1.15rem; font-weight:700; color:#fff; margin:0 0 12px; line-height:1.4; }
+    .insight-card p { font-size:0.9rem; color:#64748b; line-height:1.65; margin:0 0 20px; }
+    .insight-meta { display:flex; align-items:center; gap:8px; font-size:12px; color:#475569; }
+    @media(max-width:768px) { .insights-grid { grid-template-columns:1fr; } }
+
+    /* ===== CTA BANNER ===== */
+    .cta-section { padding:140px 0; background:#0a1628; }
+    .cta-box { background:#111c32; border:1px solid #1e293b; border-radius:16px; padding:72px 48px; text-align:center; position:relative; overflow:hidden; }
+    .cta-box::before { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle at 50% 50%, rgba(37,99,235,0.04), transparent 50%); }
+    .cta-box h2 { font-size:clamp(1.8rem, 3vw, 2.5rem); font-weight:800; color:#fff; margin:0 0 16px; position:relative; letter-spacing:-0.5px; }
+    .cta-box p { font-size:1.1rem; color:#64748b; margin:0 0 40px; position:relative; max-width:520px; margin-left:auto; margin-right:auto; line-height:1.7; }
+    @media(max-width:640px) { .cta-box { padding:48px 24px; } }
+
+    /* ===== CUSTOM CORPORATE FOOTER ===== */
+    .corp-footer { background:#030712; padding:80px 0 0; color:#cbd5e1; border-top:1px solid rgba(255,255,255,0.05); }
+    .corp-footer .corp-section { max-width:1300px; margin:0 auto; padding:0 24px; }
+    .footer-grid { display:grid; grid-template-columns:300px 1fr; gap:60px; margin-bottom:60px; }
+    .footer-left { display:flex; flex-direction:column; gap:20px; }
+    .footer-logo { display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; line-height:1; margin-bottom:12px; }
+    .footer-logo-main { font-family:'Exo','Orbitron',sans-serif; font-weight:800; font-size:28px; letter-spacing:3px; background:linear-gradient(135deg,#5b21b6,#9333ea,#4f46e5); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .footer-logo-sub { font-family:sans-serif; font-weight:700; font-size:9px; letter-spacing:4px; color:#fff; margin-top:3px; text-transform:uppercase; }
+    .footer-desc { font-size:0.95rem; line-height:1.6; color:#e2e8f0; }
+    .footer-desc span { color:#0d9488; font-weight:600; }
+    .footer-contact { display:flex; flex-direction:column; gap:16px; margin-top:12px; }
+    .contact-item { display:flex; align-items:flex-start; gap:12px; font-size:0.9rem; color:#cbd5e1; line-height:1.5; }
+    .contact-item svg { width:20px; height:20px; color:#0d9488; flex-shrink:0; margin-top:2px; }
+    
+    .footer-links-wrapper { display:grid; grid-template-columns:repeat(3, 1fr); gap:40px 30px; }
+    .footer-col h4 { font-size:1.05rem; font-weight:600; color:#3b82f6; margin:0 0 16px 0; border-bottom:2px solid #1e3a8a; padding-bottom:8px; display:inline-block; width: 100%; max-width: 180px; }
+    .footer-col ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px; }
+    .footer-col a, .footer-col span { color:#cbd5e1; text-decoration:none; font-size:0.9rem; display:inline-flex; align-items:center; transition:color 0.2s; font-weight:500; }
+    .footer-col a:hover { color:#fff; }
+    .footer-col .arrow-link::after { content:'›'; margin-left:6px; font-size:1.2rem; line-height:0.5; color:#475569; transition:color 0.2s; }
+    .footer-col a:hover.arrow-link::after { color:#3b82f6; }
+    
+    .footer-bottom { border-top:1px solid rgba(255,255,255,0.08); padding:24px 0; display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; color:#64748b; }
+    
+    /* (Floating Support Chat removed) */
+
+    @media(max-width:1024px) {
+      .footer-grid { grid-template-columns:1fr; gap:40px; }
+      .footer-links-wrapper { grid-template-columns:repeat(3, 1fr); }
+    }
+    @media(max-width:768px) {
+      .footer-links-wrapper { grid-template-columns:repeat(2, 1fr); }
+    }
+    @media(max-width:480px) {
+      .footer-links-wrapper { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ============================================================== -->
+  <!-- NAVBAR: Exact copy from Infoceranew.html (URLs made relative)  -->
+  <!-- ============================================================== -->
+  <nav id="custom-fixed-nav" style="position:fixed;top:0;left:0;width:100%;z-index:9999;transition:background 0.3s,box-shadow 0.3s,backdrop-filter 0.3s;background:rgba(15,23,42,0.95);color:#fff;font-family:inherit;backdrop-filter:blur(12px);box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;height:80px;">
+        <!-- Logo -->
+        <div style="flex-shrink:0;">
+          <a href="index.html" style="display:flex;flex-direction:column;align-items:flex-start;padding:8px 0;text-decoration:none;line-height:1;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.6));">
+            <span style="font-family:'Exo','Orbitron',sans-serif;font-weight:800;font-size:28px;letter-spacing:3px;background:linear-gradient(135deg,#5b21b6,#9333ea,#4f46e5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">INFOCERA</span>
+            <span style="font-family:sans-serif;font-weight:700;font-size:9px;letter-spacing:4px;color:#ffffff;margin-top:3px;text-transform:uppercase;">Seamless Connections</span>
+          </a>
+        </div>
+
+        <!-- Desktop Links -->
+        <div id="nav-desktop-links" style="display:flex;align-items:center;gap:12px;white-space:nowrap;">
+          <a href="index.html" style="color:#fff;text-decoration:none;font-weight:500;padding:4px 2px;transition:color 0.2s;" onmouseenter="this.style.color='#60a5fa'" onmouseleave="this.style.color='#fff'">Home</a>
+          <a href="about.html" style="color:#fff;text-decoration:none;font-weight:500;padding:4px 2px;transition:color 0.2s;" onmouseenter="this.style.color='#60a5fa'" onmouseleave="this.style.color='#fff'">About Us</a>
+
+          <!-- Dropdown: Services (Mega Menu) -->
+          <div data-dropdown="services" style="position:relative;padding:24px 0;">
+            <a href="services.html" class="nav-dd-btn" style="display:flex;align-items:center;color:#fff;font-weight:500;text-decoration:none;background:none;border:none;cursor:pointer;font-size:inherit;font-family:inherit;padding:0;transition:color 0.2s;">
+              Services
+              <svg class="dd-arrow" style="margin-left:4px;width:16px;height:16px;transition:transform 0.3s;transform:rotate(0deg);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+            <div class="dd-panel" style="position:absolute;left:50%;transform:translateX(-50%) translateY(8px);top:100%;margin-top:-8px;width:750px;border-radius:12px;box-shadow:0 25px 50px rgba(0,0,0,0.5);background:rgba(15,23,42,0.97);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);opacity:0;visibility:hidden;transition:all 0.25s ease;z-index:100;pointer-events:none;padding:24px 28px;">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;">
+                <div>
+                  <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Mobile Application</div>
+                  <a href="services/mobile-apps.html" class="dd-link">Mobile App Development</a>
+                  <a href="services/windows-app-development.html" class="dd-link">Windows App Development</a>
+                  <a href="services/xamarin-app-development.html" class="dd-link">Xamarin App Development</a>
+                  <a href="services/hybrid-app-development.html" class="dd-link">Hybrid App Development</a>
+                  <a href="services/native-app-development.html" class="dd-link">Native App Development</a>
+                </div>
+                <div>
+                  <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Online Marketing</div>
+                  <a href="services/seo-services.html" class="dd-link">SEO Services</a>
+                  <a href="services/search-engine-marketing.html" class="dd-link">Search Engine Marketing</a>
+                  <a href="services/social-media-marketing.html" class="dd-link">Social Media Marketing</a>
+                  <a href="services/pay-per-click-management.html" class="dd-link">Pay Per Click Management</a>
+                  <a href="services/seo-copywriting.html" class="dd-link">SEO Copywriting</a>
+                  <a href="services/digital-marketing.html" class="dd-link">Digital Marketing</a>
+                  <a href="services/brand-consulting.html" class="dd-link">Brand Consulting</a>
+                  <a href="services/lead-management-system.html" class="dd-link">Lead Management System</a>
+                </div>
+                <div>
+                  <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Web Design &amp; Development</div>
+                  <a href="services/ecommerce-development.html" class="dd-link">E-commerce Website Development</a>
+                  <a href="technologies/wordpress.html" class="dd-link">WordPress Development</a>
+                  <a href="technologies/php.html" class="dd-link">PHP Development</a>
+                  <a href="services/web-development.html" class="dd-link">Custom Web Development</a>
+                </div>
+                <div>
+                  <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Creative Design</div>
+                  <a href="services/creative-design.html" class="dd-link">Creative Design</a>
+                  <a href="services/ui-ux-design.html" class="dd-link">UI/UX Design</a>
+                  <a href="services/logo-design.html" class="dd-link">Logo Design</a>
+                  <a href="services/brochure-design.html" class="dd-link">Brochure Design</a>
+                </div>
+                <div>
+                  <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Consultant</div>
+                  <a href="services/consulting-services.html" class="dd-link">Consulting Services</a>
+                  <a href="services/netsuite-consultant.html" class="dd-link">NetSuite Solution Consultant</a>
+                  <a href="services/recruitment-service.html" class="dd-link">Recruitment Service</a>
+                  <a href="services/sharepoint-development.html" class="dd-link">SharePoint Development</a>
+                  <a href="services/software-consultant.html" class="dd-link">Software Consultant</a>
+                </div>
+                <div>
+                  <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Data Science</div>
+                  <a href="services/ai-ml.html" class="dd-link">AI &amp; Machine Learning</a>
+                  <a href="services/data-analytics.html" class="dd-link">Data Analytics</a>
+                  <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:12px 0 8px;">Testing</div>
+                  <a href="services/software-testing.html" class="dd-link">Software Testing</a>
+                  <a href="services/security-testing.html" class="dd-link">Security Testing</a>
+                  <a href="services/performance-testing.html" class="dd-link">Performance Testing</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown: Technologies (Mega Menu) -->
+          <div data-dropdown="technologies" style="position:relative;padding:24px 0;">
+            <a href="technologies.html" class="nav-dd-btn" style="display:flex;align-items:center;color:#fff;font-weight:500;text-decoration:none;background:none;border:none;cursor:pointer;font-size:inherit;font-family:inherit;padding:0;transition:color 0.2s;">
+              Technologies
+              <svg class="dd-arrow" style="margin-left:4px;width:16px;height:16px;transition:transform 0.3s;transform:rotate(0deg);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+            <div class="dd-panel" style="position:absolute;left:50%;transform:translateX(-50%) translateY(8px);top:100%;margin-top:-8px;width:900px;border-radius:12px;box-shadow:0 25px 50px rgba(0,0,0,0.5);background:rgba(15,23,42,0.97);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);opacity:0;visibility:hidden;transition:all 0.25s ease;z-index:100;pointer-events:none;padding:24px 28px;">
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px 40px;">
+                <div style="display:flex;flex-direction:column;gap:16px;">
+                  <div>
+                    <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">UI Design</div>
+                    <a href="technologies/html-css.html" class="dd-link">HTML/HTML5, CSS3</a>
+                    <a href="technologies/angular-js.html" class="dd-link">AngularJS, JS</a>
+                    <a href="technologies/ajax-json.html" class="dd-link">AJAX/JSON</a>
+                    <a href="technologies/jquery.html" class="dd-link">jQuery, jQuery UI</a>
+                    <a href="technologies/drupal.html" class="dd-link">Drupal</a>
+                    <a href="technologies/joomla.html" class="dd-link">Joomla</a>
+                    <a href="technologies/wordpress.html" class="dd-link">WordPress</a>
+                    <a href="technologies/react-development.html" class="dd-link">React Development</a>
+                    <a href="technologies/ar-vr-development.html" class="dd-link">AR/VR Development</a>
+                  </div>
+                  <div>
+                    <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Cloud Computing</div>
+                    <a href="technologies/aws.html" class="dd-link">AWS Development</a>
+                    <a href="technologies/google-cloud.html" class="dd-link">Google Cloud</a>
+                    <a href="technologies/godaddy.html" class="dd-link">Go Daddy</a>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:16px;">
+                  <div>
+                    <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Server Side Scripting</div>
+                    <a href="technologies/php.html" class="dd-link">PHP</a>
+                    <a href="technologies/java-frameworks.html" class="dd-link">J2EE, J2SE, Swing, Servlet</a>
+                    <a href="technologies/java-frameworks.html" class="dd-link">Spring, Struts, Hibernate</a>
+                    <a href="technologies/jsp-jsf.html" class="dd-link">JSP, JSF, ApacheCXF</a>
+                    <a href="technologies/java-testing.html" class="dd-link">JUnit, TestNG, Mockito</a>
+                    <a href="technologies/architecture.html" class="dd-link">Microsoft Visio, Enterprise Architect</a>
+                    <a href="technologies/shell.html" class="dd-link">Shell</a>
+                    <a href="technologies/perl.html" class="dd-link">Perl</a>
+                    <a href="technologies/python.html" class="dd-link">Python</a>
+                    <a href="technologies/nodejs-development.html" class="dd-link">NodeJS Development</a>
+                  </div>
+                  <div>
+                    <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Web Server Technology</div>
+                    <a href="technologies/jboss.html" class="dd-link">JBoss</a>
+                    <a href="technologies/apache.html" class="dd-link">Apache</a>
+                    <a href="technologies/tomcat.html" class="dd-link">Tomcat</a>
+                    <a href="technologies/iis.html" class="dd-link">IIS</a>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:16px;">
+                  <div>
+                    <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Data Mining and Analytics</div>
+                    <a href="technologies/oracle.html" class="dd-link">Database Design: Oracle</a>
+                    <a href="technologies/sql-database.html" class="dd-link">SQL Database</a>
+                    <a href="technologies/redis.html" class="dd-link">Redis</a>
+                    <a href="technologies/cassandra.html" class="dd-link">Cassandra</a>
+                    <a href="technologies/mongodb.html" class="dd-link">Database Development: MongoDB</a>
+                    <a href="technologies/sql-server.html" class="dd-link">Database Consulting: SQL Server</a>
+                    <a href="technologies/iot-solutions.html" class="dd-link">IoT Solutions</a>
+                    <a href="technologies/blockchain-development.html" class="dd-link">Blockchain Development</a>
+                  </div>
+                  <div>
+                    <div style="color:#818cf8;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Testing &amp; Software Process</div>
+                    <a href="technologies/software-testing.html" class="dd-link">Software Testing</a>
+                    <a href="technologies/unit-testing.html" class="dd-link">Unit Testing</a>
+                    <a href="technologies/integration-testing.html" class="dd-link">Integration Testing</a>
+                    <a href="technologies/system-testing.html" class="dd-link">System Testing</a>
+                    <a href="technologies/deployment-automation.html" class="dd-link">Deployment Automation Support</a>
+                    <a href="technologies/sdlc.html" class="dd-link">SDLC</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Industries (hidden, same as Infoceranew.html) -->
+          <div data-dropdown="industries" style="display:none !important;position:relative;padding:24px 0;">
+            <a href="industries.html" class="nav-dd-btn" style="display:flex;align-items:center;color:#fff;font-weight:500;text-decoration:none;">Industries</a>
+          </div>
+
+          <a href="portfolio.html" style="color:#fff;text-decoration:none;font-weight:500;padding:4px 2px;transition:color 0.2s;" onmouseenter="this.style.color='#60a5fa'" onmouseleave="this.style.color='#fff'">Portfolio</a>
+          <a href="careers.html" style="color:#fff;text-decoration:none;font-weight:500;padding:4px 2px;transition:color 0.2s;" onmouseenter="this.style.color='#60a5fa'" onmouseleave="this.style.color='#fff'">Careers</a>
+          <a href="contact.html" style="color:#fff;text-decoration:none;font-weight:500;padding:4px 2px;transition:color 0.2s;" onmouseenter="this.style.color='#60a5fa'" onmouseleave="this.style.color='#fff'">Contact Us</a>
+
+          <a href="login.html" style="background:linear-gradient(to right,#2563eb,#9333ea);color:#fff;padding:10px 24px;border-radius:12px;text-decoration:none;font-weight:500;box-shadow:0 4px 15px rgba(147,51,234,0.3);transition:transform 0.3s;transform:scale(1);" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">My Account</a>
+
+          <button id="search-toggle-btn" style="padding:8px;color:#fff;background:none;border:none;cursor:pointer;transition:color 0.2s;" aria-label="Search" onmouseenter="this.style.color='#60a5fa'" onmouseleave="this.style.color='#fff'">
+            <svg style="width:24px;height:24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          </button>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div id="nav-mobile-toggle" style="display:none;align-items:center;">
+          <button id="mobile-menu-btn" style="padding:8px;margin-right:8px;color:#fff;background:none;border:none;cursor:pointer;">
+            <svg id="hamburger-icon" style="width:32px;height:32px;display:block;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg id="close-icon" style="width:32px;height:32px;display:none;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (full-screen overlay) -->
+    <div id="mobile-menu" style="display:none;background:#0f172a;border-top:1px solid rgba(255,255,255,0.1);box-shadow:0 25px 50px rgba(0,0,0,0.5);position:fixed;top:80px;left:0;right:0;bottom:0;overflow-y:auto;-webkit-overflow-scrolling:touch;z-index:9998;">
+      <div style="padding:8px 16px 40px;">
+        <a href="index.html" class="mob-link" style="display:block;padding:14px 12px;font-size:16px;font-weight:500;color:#fff;text-decoration:none;border-radius:8px;border-bottom:1px solid rgba(255,255,255,0.06);">Home</a>
+        <a href="about.html" class="mob-link" style="display:block;padding:14px 12px;font-size:16px;font-weight:500;color:#fff;text-decoration:none;border-radius:8px;border-bottom:1px solid rgba(255,255,255,0.06);">About Us</a>
+        <a href="services.html" class="mob-link" style="display:block;padding:14px 12px;font-size:16px;font-weight:500;color:#fff;text-decoration:none;border-radius:8px;border-bottom:1px solid rgba(255,255,255,0.06);">Services</a>
+        <a href="technologies.html" class="mob-link" style="display:block;padding:14px 12px;font-size:16px;font-weight:500;color:#fff;text-decoration:none;border-radius:8px;border-bottom:1px solid rgba(255,255,255,0.06);">Technologies</a>
+        <a href="portfolio.html" class="mob-link" style="display:block;padding:14px 12px;font-size:16px;font-weight:500;color:#fff;text-decoration:none;border-radius:8px;border-bottom:1px solid rgba(255,255,255,0.06);">Portfolio</a>
+        <a href="careers.html" class="mob-link" style="display:block;padding:14px 12px;font-size:16px;font-weight:500;color:#fff;text-decoration:none;border-radius:8px;border-bottom:1px solid rgba(255,255,255,0.06);">Careers</a>
+        <a href="contact.html" class="mob-link" style="display:block;padding:14px 12px;font-size:16px;font-weight:500;color:#fff;text-decoration:none;border-radius:8px;border-bottom:1px solid rgba(255,255,255,0.06);">Contact Us</a>
+        <a href="login.html" style="display:block;margin-top:20px;text-align:center;padding:14px 24px;background:linear-gradient(to right,#2563eb,#9333ea);color:#fff;font-weight:600;border-radius:12px;text-decoration:none;box-shadow:0 4px 15px rgba(147,51,234,0.3);font-size:16px;">My Account</a>
+      </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" style="display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(15,23,42,0.97);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.1);box-shadow:0 25px 50px rgba(0,0,0,0.5);padding:24px;">
+      <div style="max-width:768px;margin:0 auto;display:flex;align-items:center;">
+        <input type="text" id="custom-search-input" placeholder="Search Infocera..." style="width:100%;background:transparent;color:#fff;font-size:20px;border:none;border-bottom:2px solid #334155;outline:none;padding:8px 0;transition:border-color 0.3s;" onfocus="this.style.borderBottomColor='#3b82f6'" onblur="this.style.borderBottomColor='#334155'">
+        <button id="close-search-btn" style="margin-left:16px;padding:8px;color:#9ca3af;background:none;border:none;cursor:pointer;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='#9ca3af'">
+          <svg style="width:32px;height:32px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================================================================ -->
+  <!-- SECTION 1: HERO                                                  -->
+  <!-- ================================================================ -->
+  <section class="hero" style="padding:160px 0 100px; background:#0a1628; position:relative; overflow:hidden;">
+    <!-- Abstract Ambient Glows -->
+    <div style="position:absolute; top:-20%; left:-10%; width:60vw; height:60vw; background:radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 60%); filter:blur(100px); z-index:0; pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-10%; right:-10%; width:50vw; height:50vw; background:radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 60%); filter:blur(100px); z-index:0; pointer-events:none;"></div>
+    
+    <div style="position:absolute; top:0; right:0; width:45%; height:100%; background:linear-gradient(135deg, rgba(15,40,71,0.5) 0%, rgba(10,22,40,0.8) 100%); clip-path:polygon(15% 0, 100% 0, 100% 100%, 0 100%); z-index:0;"></div>
+    <div class="corp-section" style="position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:0 24px;">
+      
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;">
+        <!-- Left Side: Text -->
+        <div>
+          <div class="hero-badge" style="display:inline-flex; align-items:center; gap:8px; padding:8px 20px; background:rgba(37,99,235,0.1); border:1px solid rgba(37,99,235,0.25); border-radius:100px; font-size:13px; font-weight:600; color:#60a5fa; letter-spacing:0.5px; margin-bottom:32px;">
+            <div style="width:8px; height:8px; background:#2563eb; border-radius:50%;"></div> Leading IT Services Provider
+          </div>
+          <h1 style="font-size:clamp(2.5rem, 5vw, 4rem); font-weight:900; line-height:1.1; color:#fff; margin:0 0 24px; max-width:680px; letter-spacing:-1px;">
+            Enterprise Technology<br>Solutions That <span style="color:#2563eb;">Deliver.</span>
+          </h1>
+          <p class="hero-sub" style="font-size:1.2rem; color:#94a3b8; line-height:1.7; max-width:540px; margin:0 0 48px;">
+            Infocera empowers businesses with scalable software, cloud infrastructure, and data-driven strategies — engineered for performance, built for growth.
+          </p>
+          <div class="hero-actions" style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:60px;">
+            <a href="contact.html" class="btn-primary" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:#2563eb; color:#fff; font-size:15px; font-weight:700; border:none; border-radius:8px; text-decoration:none;">Get Started</a>
+            <a href="services.html" class="btn-secondary" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:transparent; color:#fff; font-size:15px; font-weight:600; border:2px solid #334155; border-radius:8px; text-decoration:none;">View All Services</a>
+            <a href="portfolio.html" class="btn-secondary" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:transparent; color:#fff; font-size:15px; font-weight:600; border:2px solid #334155; border-radius:8px; text-decoration:none;">View All Projects</a>
+          </div>
+          <div class="hero-stats" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0; border-top:1px solid #1e293b; padding-top:32px; margin-top:48px;">
+            <div style="padding-right:16px;"><div style="font-size:2rem; font-weight:900; margin-bottom:4px;">200<span style="color:#2563eb;">+</span></div><div style="font-size:12px; color:#64748b; text-transform:uppercase; letter-spacing:1px;">Projects</div></div>
+            <div style="padding-right:16px;"><div style="font-size:2rem; font-weight:900; margin-bottom:4px;">50<span style="color:#2563eb;">+</span></div><div style="font-size:12px; color:#64748b; text-transform:uppercase; letter-spacing:1px;">Clients</div></div>
+            <div style="padding-right:16px;"><div style="font-size:2rem; font-weight:900; margin-bottom:4px;">10<span style="color:#2563eb;">+</span></div><div style="font-size:12px; color:#64748b; text-transform:uppercase; letter-spacing:1px;">Industries</div></div>
+            <div><div style="font-size:2rem; font-weight:900; margin-bottom:4px;">99<span style="color:#2563eb;">%</span></div><div style="font-size:12px; color:#64748b; text-transform:uppercase; letter-spacing:1px;">Retention</div></div>
+          </div>
+        </div>
+
+        <!-- Right Side: Image with Seamless Faded Masks -->
+        <div style="width:100%; height:100%; min-height:540px; border-radius:24px; overflow:hidden; position:relative; transform:perspective(1000px) rotateY(-5deg); transition:transform 0.5s ease-out; box-shadow:0 30px 60px -20px rgba(0,0,0,0.8); -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);">
+          <div style="position:absolute; inset:-20px; background:linear-gradient(135deg, #3b82f6, #8b5cf6); filter:blur(60px); opacity:0.15; z-index:0;"></div>
+          <!-- Image Layer -->
+          <img src="../images.unsplash.com/photo-1486406146926-c627a92ad1ab1e5b.jpg?q=80&amp;w=2000&amp;auto=format&amp;fit=crop" alt="Corporate Enterprise" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;">
+          
+          <!-- Inner Shadow / Borders -->
+          <div style="position:absolute; inset:0; border-radius:24px; box-shadow:inset 0 0 0 1px rgba(255,255,255,0.1); z-index:2; pointer-events:none;"></div>
+          
+          <!-- Edge Masks fading into background color #0a1628 -->
+          <div style="position:absolute; top:0; left:0; bottom:0; width:100%; background:linear-gradient(90deg, #0a1628 0%, transparent 15%, transparent 85%, #0a1628 100%); z-index:2; pointer-events:none;"></div>
+          <div style="position:absolute; top:0; left:0; right:0; height:100%; background:linear-gradient(180deg, #0a1628 0%, transparent 15%, transparent 85%, #0a1628 100%); z-index:2; pointer-events:none;"></div>
+          <div style="position:absolute; inset:0; background:radial-gradient(circle at 60% 40%, transparent 40%, rgba(10,22,40,0.8) 100%); z-index:2; pointer-events:none;"></div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- SECTION 2: TECHNOLOGY STACK                                      -->
+  <!-- ================================================================ -->
+  <section class="tech-section">
+    <div class="corp-section">
+      <div class="section-header">
+        <div class="section-label">Technology Stack</div>
+        <h2 class="section-title">Built on Modern, Proven Technologies</h2>
+        <p class="section-desc">We leverage industry-leading frameworks, languages, and platforms to build robust, scalable solutions across every layer of your stack.</p>
+      </div>
+      <style>
+        .custom-tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 80px; justify-items: center; }
+        @media (min-width: 768px) { .custom-tech-grid { grid-template-columns: repeat(4, 1fr); gap: 60px; row-gap: 80px; } }
+      </style>
+      <div class="custom-tech-grid">
+        <!-- AWS -->
+        <a href="technologies/aws.html" style="display:flex; align-items:center; gap:16px; opacity:0.4; transition:opacity 0.3s; cursor:pointer; text-decoration:none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="44" height="44" style="color:#fff;"><path d="M19.5 14c1.4 0 2.5-1.1 2.5-2.5S20.9 9 19.5 9H17V6.5C17 5.1 15.9 4 14.5 4S12 5.1 12 6.5V9H9V6.5C9 5.1 7.9 4 6.5 4S4 5.1 4 6.5V9H2.5C1.1 9 0 10.1 0 11.5S1.1 14 2.5 14"/></svg>
+          <span style="font-size:32px; font-weight:800; letter-spacing:-1.5px; color:#fff;">AWS</span>
+        </a>
+        <!-- React -->
+        <a href="technologies/react-development.html" style="display:flex; align-items:center; gap:16px; opacity:0.4; transition:opacity 0.3s; cursor:pointer; text-decoration:none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="44" height="44" style="color:#fff;"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>
+          <span style="font-size:32px; font-weight:800; letter-spacing:-1.5px; color:#fff;">React</span>
+        </a>
+        <!-- Python -->
+        <a href="technologies/python.html" style="display:flex; align-items:center; gap:16px; opacity:0.4; transition:opacity 0.3s; cursor:pointer; text-decoration:none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="44" height="44" style="color:#fff;"><path d="M12 2l-2 7h4l-2 7"/><circle cx="12" cy="12" r="10"/></svg>
+          <span style="font-size:32px; font-weight:800; letter-spacing:-1.5px; color:#fff;">Python</span>
+        </a>
+        <!-- Node.js -->
+        <a href="technologies/nodejs-development.html" style="display:flex; align-items:center; gap:16px; opacity:0.4; transition:opacity 0.3s; cursor:pointer; text-decoration:none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="44" height="44" style="color:#fff;"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
+          <span style="font-size:32px; font-weight:800; letter-spacing:-1.5px; color:#fff;">Node.js</span>
+        </a>
+        <!-- Docker -->
+        <a href="technologies.html" style="display:flex; align-items:center; gap:16px; opacity:0.4; transition:opacity 0.3s; cursor:pointer; text-decoration:none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="44" height="44" style="color:#fff;"><path d="M17.5 19H9a7 7 0 110-14h8.5a4.5 4.5 0 010 9H12a2.5 2.5 0 010-5h5.5"/></svg>
+          <span style="font-size:32px; font-weight:800; letter-spacing:-1.5px; color:#fff;">Docker</span>
+        </a>
+        <!-- MongoDB -->
+        <a href="technologies/mongodb.html" style="display:flex; align-items:center; gap:16px; opacity:0.4; transition:opacity 0.3s; cursor:pointer; text-decoration:none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="44" height="44" style="color:#fff;"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg>
+          <span style="font-size:32px; font-weight:800; letter-spacing:-1.5px; color:#fff;">MongoDB</span>
+        </a>
+        <!-- Kubernetes -->
+        <a href="technologies.html" style="display:flex; align-items:center; gap:16px; opacity:0.4; transition:opacity 0.3s; cursor:pointer; text-decoration:none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="44" height="44" style="color:#fff;"><path d="M9.5 2A5.5 5.5 0 004 7.5V16l8 6 8-6V7.5A5.5 5.5 0 0014.5 2h-5z"/><path d="M12 12L4 7.5M12 12l8-4.5M12 12v10"/></svg>
+          <span style="font-size:32px; font-weight:800; letter-spacing:-1.5px; color:#fff;">Kubernetes</span>
+        </a>
+        <!-- Angular -->
+        <a href="technologies/angular-js.html" style="display:flex; align-items:center; gap:16px; opacity:0.4; transition:opacity 0.3s; cursor:pointer; text-decoration:none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="44" height="44" style="color:#fff;"><path d="M12 2L2 19.5h20L12 2zm0 4l7 13H5l7-13z" opacity=".85"/></svg>
+          <span style="font-size:32px; font-weight:800; letter-spacing:-1.5px; color:#fff;">Angular</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- SECTION 3: OUR SERVICES                                          -->
+  <!-- ================================================================ -->
+  <section class="services-section" style="position:relative; overflow:hidden;">
+    <!-- Large ambient background glows to add depth -->
+    <div style="position:absolute; top:10%; right:-10%; width:600px; height:600px; background:radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%); filter:blur(120px); z-index:0; pointer-events:none;"></div>
+    <div style="position:absolute; bottom:10%; left:-10%; width:500px; height:500px; background:radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%); filter:blur(100px); z-index:0; pointer-events:none;"></div>
+    
+    <div class="corp-section" style="position:relative; z-index:1;">
+      <div class="section-header">
+        <div class="section-label">Our Services</div>
+        <h2 class="section-title">End-to-End Technology Services</h2>
+        <p class="section-desc">From concept to deployment, we provide comprehensive IT solutions tailored to drive digital transformation for enterprises of all sizes.</p>
+      </div>
+      <div class="services-grid">
+        <!-- 1. Software Products -->
+        <div class="service-card">
+          <div class="service-icon"><svg width="32" height="32" fill="none" stroke="currentColor" style="color:#22d3ee;" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>Software Products</h3>
+          <p>Enterprise-grade CRM, HR management, and custom business management systems built for scale.</p>
+          <a href="services.html" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+        <!-- 2. Web Development -->
+        <div class="service-card">
+          <div class="service-icon"><svg width="32" height="32" fill="none" stroke="currentColor" style="color:#22d3ee;" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Web Development</h3>
+          <p>Custom websites, e-commerce platforms, and web applications using React, Angular, and modern frameworks.</p>
+          <a href="services/web-development.html" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+        <!-- 3. Mobile Applications -->
+        <div class="service-card">
+          <div class="service-icon"><svg width="32" height="32" fill="none" stroke="currentColor" style="color:#22d3ee;" stroke-width="1.8" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+          <h3>Mobile Applications</h3>
+          <p>Native, hybrid, and cross-platform mobile apps for iOS and Android with seamless user experiences.</p>
+          <a href="services/mobile-apps.html" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+        <!-- 4. Cloud & DevOps -->
+        <div class="service-card">
+          <div class="service-icon"><svg width="32" height="32" fill="none" stroke="currentColor" style="color:#22d3ee;" stroke-width="1.8" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
+          <h3>Cloud &amp; DevOps</h3>
+          <p>AWS, Google Cloud, and Azure solutions with CI/CD pipelines, containerization, and infrastructure automation.</p>
+          <a href="technologies/aws.html" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+        <!-- 5. Digital Marketing -->
+        <div class="service-card">
+          <div class="service-icon"><svg width="32" height="32" fill="none" stroke="currentColor" style="color:#22d3ee;" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+          <h3>Digital Marketing</h3>
+          <p>SEO, SEM, social media, PPC management, and brand consulting to drive measurable growth and ROI.</p>
+          <a href="services/digital-marketing.html" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+        <!-- 6. AI & Data Science -->
+        <div class="service-card">
+          <div class="service-icon"><svg width="32" height="32" fill="none" stroke="currentColor" style="color:#22d3ee;" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2a4 4 0 00-4 4v2H6a4 4 0 00-4 4v0a4 4 0 004 4h2v2a4 4 0 004 4v0a4 4 0 004-4v-2h2a4 4 0 004-4v0a4 4 0 00-4-4h-2V6a4 4 0 00-4-4z"/></svg></div>
+          <h3>AI &amp; Data Analytics</h3>
+          <p>Machine learning models, predictive analytics, and intelligent automation to unlock actionable business insights.</p>
+          <a href="services/ai-ml.html" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+        <!-- 7. UI/UX Design -->
+        <div class="service-card">
+          <div class="service-icon"><svg width="32" height="32" fill="none" stroke="currentColor" style="color:#22d3ee;" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13 0-.92.75-1.66 1.66-1.66H17c3.04 0 5.5-2.46 5.5-5.5C22.5 6.01 17.96 2 12 2z"/></svg></div>
+          <h3>UI/UX &amp; Creative Design</h3>
+          <p>User-centric interfaces, brand identities, logo design, and marketing collateral that elevate your brand.</p>
+          <a href="services/ui-ux-design.html" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+        <!-- 8. QA & Testing -->
+        <div class="service-card">
+          <div class="service-icon"><svg width="32" height="32" fill="none" stroke="currentColor" style="color:#22d3ee;" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 01-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 011-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 011.52 0C14.51 3.81 17 5 19 5a1 1 0 011 1z"/></svg></div>
+          <h3>QA &amp; Testing</h3>
+          <p>Comprehensive software, security, and performance testing to ensure flawless releases every time.</p>
+          <a href="services/software-testing.html" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- SECTION 4: OUR INSIGHTS                                          -->
+  <!-- ================================================================ -->
+  <section class="insights-section">
+    <div class="corp-section">
+      <div class="section-header">
+        <div class="section-label">Our Insights</div>
+        <h2 class="section-title">Perspectives on Technology &amp; Business</h2>
+        <p class="section-desc" style="margin-bottom:24px;">Expert analysis, industry trends, and actionable strategies from the Infocera technology leadership team.</p>
+        <a href="blog.html" style="color:#2563eb; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">View All Insights <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+      </div>
+      <div class="insights-grid">
+        <!-- Article 1 -->
+        <div class="insight-card">
+          <div class="insight-img" style="position:relative; width:100%; padding-bottom:56.25%;"> <!-- 16:9 Aspect Ratio -->
+            <img src="../images.unsplash.com/photo-1550751827-4bd374c3f58bf148.jpg?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Artificial Intelligence" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="insight-body">
+            <div class="insight-tag">Artificial Intelligence</div>
+            <h3>How AI Is Reshaping Enterprise Software Development in 2026</h3>
+            <p>From intelligent code generation to automated testing pipelines, AI is fundamentally transforming how enterprises build and ship software at scale.</p>
+            <div class="insight-meta">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              8 min read
+            </div>
+          </div>
+        </div>
+        <!-- Article 2 -->
+        <div class="insight-card">
+          <div class="insight-img" style="position:relative; width:100%; padding-bottom:56.25%;">
+            <img src="../images.unsplash.com/photo-1451187580459-43490279c0faf148.jpg?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Cloud Strategy" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="insight-body">
+            <div class="insight-tag">Cloud Strategy</div>
+            <h3>Multi-Cloud Architecture: Building Resilient Infrastructure</h3>
+            <p>Best practices for designing fault-tolerant, cost-optimized multi-cloud deployments across AWS, Azure, and Google Cloud Platform.</p>
+            <div class="insight-meta">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              6 min read
+            </div>
+          </div>
+        </div>
+        <!-- Article 3 -->
+        <div class="insight-card">
+          <div class="insight-img" style="position:relative; width:100%; padding-bottom:56.25%;">
+            <img src="../images.unsplash.com/photo-1555949963-ff9fe0c870ebf148.jpg?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Cybersecurity" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="insight-body">
+            <div class="insight-tag">Cybersecurity</div>
+            <h3>Zero-Trust Security Frameworks for Modern Applications</h3>
+            <p>Implementing zero-trust architectures and advanced threat detection to protect enterprise applications in an increasingly complex landscape.</p>
+            <div class="insight-meta">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              10 min read
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- CTA BANNER                                                       -->
+  <!-- ================================================================ -->
+  <section class="cta-section">
+    <div class="corp-section">
+      <div class="cta-box">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Partner with Infocera to build technology solutions that drive real results. Let's discuss your next project.</p>
+        <a href="contact.html" class="btn-primary" style="display:inline-flex;">Get in Touch <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ -->
+  <!-- EXACT FOOTER (Reconstructed & Enhanced)                          -->
+  <!-- ================================================================ -->
+  <footer class="corp-footer">
+    <div class="corp-section">
+      <div class="footer-grid">
+        <!-- Left Side: Company Info -->
+        <div class="footer-left">
+          <a href="index.html" class="footer-logo">
+            <span class="footer-logo-main">INFOCERA</span>
+            <span class="footer-logo-sub">Seamless Connections</span>
+          </a>
+          <p class="footer-desc">
+            Leading IT services provider delivering <span>innovative technology solutions</span> that drive business growth and digital transformation.
+          </p>
+          <div class="footer-contact">
+            <div class="contact-item">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              <span>+91 8882824948</span>
+            </div>
+            <div class="contact-item">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <span>info@infocera.in</span>
+            </div>
+            <div class="contact-item">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span>First Floor, L29-L34, Block L<br>Connaught Place, New Delhi, Delhi -<br>110001</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Links Grid -->
+        <div class="footer-links-wrapper">
+          <!-- Row 1 -->
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul style="display:flex; flex-direction:column; gap:12px; list-style:none; padding:0; margin:0;">
+              <li><a href="services/digital-marketing.html">Digital Marketing</a></li>
+              <li><a href="services/web-development.html">Web Design &amp; Development</a></li>
+              <li><a href="services/mobile-apps.html">Mobile Application</a></li>
+              <li><a href="services.html">Software Services</a></li>
+              <li><a href="services/creative-design.html">Creative Design</a></li>
+              <li><a href="services/consulting-services.html">Consulting</a></li>
+              <li><a href="services/ai-ml.html">Data Science &amp; AI</a></li>
+              <li><a href="services/software-testing.html">QA &amp; Testing</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Industries</h4>
+            <ul style="display:flex; flex-direction:column; gap:12px; list-style:none; padding:0; margin:0;">
+              <li><a href="industries/automotive.html">Automotive</a></li>
+              <li><a href="industries/ecommerce.html">Ecommerce</a></li>
+              <li><a href="industries/education.html">Education</a></li>
+              <li><a href="industries/finance.html">Finance</a></li>
+              <li><a href="industries/gaming.html">Gaming</a></li>
+              <li><a href="industries/healthcare.html">Healthcare</a></li>
+              <li><a href="industries/manufacturing.html">Manufacturing</a></li>
+              <li><a href="industries/real-estate.html">Real Estate</a></li>
+              <li><a href="industries/retail.html">Retail</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Technologies</h4>
+            <ul style="display:flex; flex-direction:column; gap:12px; list-style:none; padding:0; margin:0;">
+              <li><a href="technologies/html-css.html">UI Design (HTML/CSS)</a></li>
+              <li><a href="technologies/react-development.html">React &amp; JavaScript</a></li>
+              <li><a href="technologies/nodejs-development.html">Node.js Server</a></li>
+              <li><a href="technologies/aws.html">AWS Cloud Computing</a></li>
+              <li><a href="technologies/mongodb.html">MongoDB &amp; Data</a></li>
+              <li><a href="services/software-testing.html">Software Testing</a></li>
+            </ul>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul style="display:flex; flex-direction:column; gap:12px; list-style:none; padding:0; margin:0;">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="login.html">Client Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Infocera. All rights reserved.</span>
+      </div>
+    </div>
+    /* (Floating Support Button successfully removed) */
+  </footer>
+
+  <!-- ===== NAVBAR INTERACTIVITY ===== -->
+  <script>
+  (function() {
+    var BREAKPOINT = 768;
+    var nav = document.getElementById('custom-fixed-nav');
+    var desktopLinks = document.getElementById('nav-desktop-links');
+    var mobileToggle = document.getElementById('nav-mobile-toggle');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var hamburgerIcon = document.getElementById('hamburger-icon');
+    var closeIcon = document.getElementById('close-icon');
+
+    // Move mobile menu to body for z-index
+    if (mobileMenu && mobileMenu.parentNode !== document.body) {
+      document.body.appendChild(mobileMenu);
+    }
+
+    // Responsive layout
+    function applyLayout() {
+      var isDesktop = window.innerWidth >= BREAKPOINT;
+      desktopLinks.style.display = isDesktop ? 'flex' : 'none';
+      mobileToggle.style.display = isDesktop ? 'none' : 'flex';
+      if (isDesktop) {
+        mobileMenu.style.display = 'none';
+        mobileMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+        if (closeIcon) closeIcon.style.display = 'none';
+      }
+    }
+    window.addEventListener('resize', applyLayout);
+    applyLayout();
+
+    // Dropdown hover logic
+    var dropdownWrappers = nav.querySelectorAll('[data-dropdown]');
+    dropdownWrappers.forEach(function(wrapper) {
+      var panel = wrapper.querySelector('.dd-panel');
+      var arrow = wrapper.querySelector('.dd-arrow');
+      var btn = wrapper.querySelector('.nav-dd-btn');
+      var hideTimeout;
+      function show() {
+        clearTimeout(hideTimeout);
+        panel.style.opacity = '1'; panel.style.visibility = 'visible';
+        panel.style.transform = 'translateX(-50%) translateY(0)';
+        panel.style.pointerEvents = 'auto';
+        if (arrow) arrow.style.transform = 'rotate(180deg)';
+        if (btn) btn.style.color = '#60a5fa';
+      }
+      function hide() {
+        hideTimeout = setTimeout(function() {
+          panel.style.opacity = '0'; panel.style.visibility = 'hidden';
+          panel.style.transform = 'translateX(-50%) translateY(8px)';
+          panel.style.pointerEvents = 'none';
+          if (arrow) arrow.style.transform = 'rotate(0)';
+          if (btn) btn.style.color = '#fff';
+        }, 120);
+      }
+      wrapper.addEventListener('mouseenter', show);
+      wrapper.addEventListener('mouseleave', hide);
+    });
+
+    // Mobile menu toggle
+    var mobileBtn = document.getElementById('mobile-menu-btn');
+    if (mobileBtn) {
+      mobileBtn.addEventListener('click', function() {
+        var isOpen = mobileMenu.classList.contains('active');
+        if (!isOpen) {
+          mobileMenu.classList.add('active');
+          hamburgerIcon.style.display = 'none';
+          closeIcon.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        } else {
+          mobileMenu.classList.remove('active');
+          hamburgerIcon.style.display = 'block';
+          closeIcon.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    // Search overlay
+    var searchToggle = document.getElementById('search-toggle-btn');
+    var searchOverlay = document.getElementById('search-overlay');
+    var closeSearch = document.getElementById('close-search-btn');
+    var searchInput = document.getElementById('custom-search-input');
+    if (searchToggle) searchToggle.addEventListener('click', function() { searchOverlay.style.display = 'block'; searchInput.focus(); });
+    if (closeSearch) closeSearch.addEventListener('click', function() { searchOverlay.style.display = 'none'; searchInput.value = ''; });
+
+
+  })();
+  </script>
+</body>
+</html>

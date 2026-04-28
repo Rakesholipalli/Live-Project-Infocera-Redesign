@@ -1,5 +1,5 @@
 {
-  "rewrites": [
-    { "source": "/([^.]+)$", "destination": "/$1.html" }
-  ]
+  "buildCommand": "echo 'Static site'",
+  "devCommand": "echo 'Static site'",
+  "cleanUrls": true
 }

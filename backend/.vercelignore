@@ -1,0 +1,7 @@
+node_modules
+.env.example
+.gitignore
+README.md
+SETUP_GUIDE.md
+API_DOCUMENTATION.md
+*.md

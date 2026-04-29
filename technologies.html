@@ -1,416 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Technologies - Infocera IT</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infocera IT</title>
+  <!-- GLOBAL RESPONSIVE OVERRIDES -->
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #0a1628; color: #fff; }
-    
-    /* Navigation Bar */
-    .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); z-index: 1000; }
-    .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 70px; }
-    .logo { font-size: 1.5rem; font-weight: 900; color: #fff; text-decoration: none; background: linear-gradient(135deg, #2563eb, #9333ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .nav-links { display: flex; gap: 30px; align-items: center; }
-    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-    .nav-links a:hover { color: #fff; }
-    .nav-links a.active { color: #2563eb; }
-    .mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
-    
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: block; }
-    }
-    
-    /* Header */
-    .header { padding: 150px 20px 80px; text-align: center; background: linear-gradient(180deg, #0a1628 0%, #0f172a 100%); }
-    .header h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; margin-bottom: 20px; background: linear-gradient(135deg, #2563eb, #9333ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .header p { font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin: 0 auto; line-height: 1.7; }
-    
-    /* Container */
-    .container { max-width: 1400px; margin: 0 auto; padding: 80px 20px; }
-    
-    /* Category Section */
-    .category { margin-bottom: 80px; }
-    .category-header { margin-bottom: 40px; }
-    .category-title { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 15px; }
-    .category-title::before { content: ''; width: 4px; height: 40px; background: linear-gradient(180deg, #2563eb, #9333ea); border-radius: 2px; }
-    .category-desc { font-size: 1.1rem; color: #64748b; margin-left: 19px; }
-    
-    /* Tech Grid */
-    .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
-    
-    /* Tech Card */
-    .tech-card { background: #111c32; border: 1px solid #1e293b; border-radius: 16px; padding: 32px; transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden; }
-    .tech-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #9333ea); transform: scaleX(0); transition: transform 0.3s ease; }
-    .tech-card:hover { border-color: #2563eb; transform: translateY(-5px); box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2); }
-    .tech-card:hover::before { transform: scaleX(1); }
-    
-    .tech-icon { width: 60px; height: 60px; background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(139,92,246,0.1)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 28px; }
-    .tech-name { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
-    .tech-desc { font-size: 0.95rem; color: #64748b; line-height: 1.6; margin-bottom: 20px; }
-    .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tech-tag { padding: 6px 12px; background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(37, 99, 235, 0.3); border-radius: 20px; font-size: 0.75rem; color: #60a5fa; font-weight: 600; }
-    
-    /* Back Button */
-    .back-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; background: transparent; border: 2px solid #334155; border-radius: 8px; color: #fff; text-decoration: none; font-weight: 600; margin-bottom: 40px; transition: all 0.3s; }
-    .back-btn:hover { border-color: #2563eb; background: rgba(37, 99, 235, 0.1); }
-    
-    @media (max-width: 768px) {
-      .tech-grid { grid-template-columns: 1fr; }
-      .header { padding: 80px 20px 60px; }
-      .category-title { font-size: 1.5rem; }
+    @media (max-width: 500px) {
+      section h1 { font-size: 1.15rem !important; margin-top: 60px !important; position: relative !important; transform: none !important; opacity: 1 !important; visibility: visible !important; }
+      section .inline-flex, section [class*="badge"] { margin-bottom: 30px !important; position: relative !important; display: inline-flex !important; transform: scale(0.85) !important; opacity: 1 !important; visibility: visible !important; }
     }
   </style>
+  <meta name="description"
+    content="Leading IT services provider delivering innovative technology solutions including web development, mobile apps, cloud solutions, AI/ML, cybersecurity, and data analytics." />
+  <meta name="author" content="Infocera" />
+
+  <meta property="og:title" content="Infocera - Professional IT Services & Solutions" />
+  <meta property="og:description"
+    content="Leading IT services provider delivering innovative technology solutions including web development, mobile apps, cloud solutions, AI/ML, cybersecurity, and data analytics." />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@infocera_dev" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Preload key fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="../fonts.googleapis.com/css2c196.css?family=Orbitron:wght@700&amp;display=swap" rel="stylesheet">
+  <link href="../fonts.googleapis.com/css255ef.css?family=Exo:wght@700&amp;display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="assets/index-BQTxH1gJ.js"></script>
+  <link rel="stylesheet" crossorigin href="assets/index-CQMqLKVC.css">
+  
+  <script src="assets/patch_clients93ac.js?v=MobileFix"></script>
+  <script src="assets/patch_navbar4a65.js?v=DesktopOverlapFix"></script>
+  <script src="assets/patch_testimonials93ac.js?v=MobileFix"></script>
+  <script src="assets/patch_stats93ac.js?v=MobileFix"></script>
 </head>
+
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="logo">INFOCERA</a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="technologies.html" class="active">Technologies</a>
-        <a href="industries.html">Industries</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="careers.html">Careers</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <button class="mobile-menu-btn">☰</button>
-    </div>
-  </nav>
-
-  <div class="header">
-    <h1>Our Technology Stack</h1>
-    <p>We leverage cutting-edge technologies and frameworks to build robust, scalable, and innovative solutions for your business</p>
-  </div>
-
-  <div class="container">
-
-    <!-- Frontend Technologies -->
-    <div class="category">
-      <div class="category-header">
-        <h2 class="category-title">Frontend Development</h2>
-        <p class="category-desc">Modern UI frameworks and libraries for building responsive, interactive user interfaces</p>
-      </div>
-      <div class="tech-grid">
-        <div class="tech-card">
-          <div class="tech-icon">⚛️</div>
-          <h3 class="tech-name">React</h3>
-          <p class="tech-desc">Build dynamic, component-based user interfaces with React's powerful ecosystem</p>
-          <div class="tech-tags">
-            <span class="tech-tag">SPA</span>
-            <span class="tech-tag">Components</span>
-            <span class="tech-tag">Hooks</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🅰️</div>
-          <h3 class="tech-name">Angular</h3>
-          <p class="tech-desc">Enterprise-grade framework for building scalable web applications</p>
-          <div class="tech-tags">
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">MVC</span>
-            <span class="tech-tag">Enterprise</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🎨</div>
-          <h3 class="tech-name">HTML5 & CSS3</h3>
-          <p class="tech-desc">Modern web standards for semantic markup and stunning visual designs</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Responsive</span>
-            <span class="tech-tag">Semantic</span>
-            <span class="tech-tag">Animations</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">💎</div>
-          <h3 class="tech-name">jQuery</h3>
-          <p class="tech-desc">Fast, feature-rich JavaScript library for DOM manipulation</p>
-          <div class="tech-tags">
-            <span class="tech-tag">DOM</span>
-            <span class="tech-tag">AJAX</span>
-            <span class="tech-tag">Plugins</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Backend Technologies -->
-    <div class="category">
-      <div class="category-header">
-        <h2 class="category-title">Backend Development</h2>
-        <p class="category-desc">Powerful server-side technologies for building robust APIs and business logic</p>
-      </div>
-      <div class="tech-grid">
-        <div class="tech-card">
-          <div class="tech-icon">🟢</div>
-          <h3 class="tech-name">Node.js</h3>
-          <p class="tech-desc">JavaScript runtime for building fast, scalable server-side applications</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Express</span>
-            <span class="tech-tag">REST API</span>
-            <span class="tech-tag">Real-time</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🐍</div>
-          <h3 class="tech-name">Python</h3>
-          <p class="tech-desc">Versatile language for web development, AI/ML, and data processing</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Django</span>
-            <span class="tech-tag">Flask</span>
-            <span class="tech-tag">FastAPI</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🐘</div>
-          <h3 class="tech-name">PHP</h3>
-          <p class="tech-desc">Server-side scripting language for dynamic web applications</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Laravel</span>
-            <span class="tech-tag">WordPress</span>
-            <span class="tech-tag">CMS</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">☕</div>
-          <h3 class="tech-name">Java</h3>
-          <p class="tech-desc">Enterprise-grade platform for building large-scale applications</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Spring Boot</span>
-            <span class="tech-tag">Hibernate</span>
-            <span class="tech-tag">Microservices</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Database Technologies -->
-    <div class="category">
-      <div class="category-header">
-        <h2 class="category-title">Database & Storage</h2>
-        <p class="category-desc">Reliable data storage solutions for structured and unstructured data</p>
-      </div>
-      <div class="tech-grid">
-        <div class="tech-card">
-          <div class="tech-icon">🍃</div>
-          <h3 class="tech-name">MongoDB</h3>
-          <p class="tech-desc">NoSQL database for flexible, scalable document storage</p>
-          <div class="tech-tags">
-            <span class="tech-tag">NoSQL</span>
-            <span class="tech-tag">JSON</span>
-            <span class="tech-tag">Scalable</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🗄️</div>
-          <h3 class="tech-name">SQL Server</h3>
-          <p class="tech-desc">Microsoft's relational database management system</p>
-          <div class="tech-tags">
-            <span class="tech-tag">RDBMS</span>
-            <span class="tech-tag">T-SQL</span>
-            <span class="tech-tag">Enterprise</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🔴</div>
-          <h3 class="tech-name">Redis</h3>
-          <p class="tech-desc">In-memory data structure store for caching and real-time applications</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Cache</span>
-            <span class="tech-tag">Fast</span>
-            <span class="tech-tag">Key-Value</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🐬</div>
-          <h3 class="tech-name">MySQL</h3>
-          <p class="tech-desc">Popular open-source relational database system</p>
-          <div class="tech-tags">
-            <span class="tech-tag">RDBMS</span>
-            <span class="tech-tag">Open Source</span>
-            <span class="tech-tag">Reliable</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cloud & DevOps -->
-    <div class="category">
-      <div class="category-header">
-        <h2 class="category-title">Cloud & DevOps</h2>
-        <p class="category-desc">Modern cloud platforms and deployment tools for scalable infrastructure</p>
-      </div>
-      <div class="tech-grid">
-        <div class="tech-card">
-          <div class="tech-icon">☁️</div>
-          <h3 class="tech-name">AWS</h3>
-          <p class="tech-desc">Amazon Web Services for comprehensive cloud computing solutions</p>
-          <div class="tech-tags">
-            <span class="tech-tag">EC2</span>
-            <span class="tech-tag">S3</span>
-            <span class="tech-tag">Lambda</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🔵</div>
-          <h3 class="tech-name">Google Cloud</h3>
-          <p class="tech-desc">Google's cloud platform for scalable applications and AI services</p>
-          <div class="tech-tags">
-            <span class="tech-tag">GCP</span>
-            <span class="tech-tag">BigQuery</span>
-            <span class="tech-tag">AI/ML</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🐳</div>
-          <h3 class="tech-name">Docker</h3>
-          <p class="tech-desc">Containerization platform for consistent deployment environments</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Containers</span>
-            <span class="tech-tag">Microservices</span>
-            <span class="tech-tag">DevOps</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">☸️</div>
-          <h3 class="tech-name">Kubernetes</h3>
-          <p class="tech-desc">Container orchestration for automated deployment and scaling</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Orchestration</span>
-            <span class="tech-tag">Scaling</span>
-            <span class="tech-tag">K8s</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CMS & Frameworks -->
-    <div class="category">
-      <div class="category-header">
-        <h2 class="category-title">CMS & Frameworks</h2>
-        <p class="category-desc">Content management systems and frameworks for rapid development</p>
-      </div>
-      <div class="tech-grid">
-        <div class="tech-card">
-          <div class="tech-icon">📝</div>
-          <h3 class="tech-name">WordPress</h3>
-          <p class="tech-desc">World's most popular CMS for websites and blogs</p>
-          <div class="tech-tags">
-            <span class="tech-tag">CMS</span>
-            <span class="tech-tag">Plugins</span>
-            <span class="tech-tag">Themes</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🌊</div>
-          <h3 class="tech-name">Drupal</h3>
-          <p class="tech-desc">Enterprise-level CMS for complex, scalable websites</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Enterprise</span>
-            <span class="tech-tag">Flexible</span>
-            <span class="tech-tag">Secure</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🎯</div>
-          <h3 class="tech-name">Joomla</h3>
-          <p class="tech-desc">Flexible CMS for building websites and online applications</p>
-          <div class="tech-tags">
-            <span class="tech-tag">CMS</span>
-            <span class="tech-tag">Extensions</span>
-            <span class="tech-tag">Community</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">⚡</div>
-          <h3 class="tech-name">Next.js</h3>
-          <p class="tech-desc">React framework for production-grade applications</p>
-          <div class="tech-tags">
-            <span class="tech-tag">SSR</span>
-            <span class="tech-tag">SSG</span>
-            <span class="tech-tag">React</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Emerging Technologies -->
-    <div class="category">
-      <div class="category-header">
-        <h2 class="category-title">Emerging Technologies</h2>
-        <p class="category-desc">Cutting-edge technologies for next-generation applications</p>
-      </div>
-      <div class="tech-grid">
-        <div class="tech-card">
-          <div class="tech-icon">🤖</div>
-          <h3 class="tech-name">AI & Machine Learning</h3>
-          <p class="tech-desc">Artificial intelligence and ML models for intelligent applications</p>
-          <div class="tech-tags">
-            <span class="tech-tag">TensorFlow</span>
-            <span class="tech-tag">PyTorch</span>
-            <span class="tech-tag">NLP</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🔗</div>
-          <h3 class="tech-name">Blockchain</h3>
-          <p class="tech-desc">Decentralized ledger technology for secure transactions</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Ethereum</span>
-            <span class="tech-tag">Smart Contracts</span>
-            <span class="tech-tag">Web3</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🌐</div>
-          <h3 class="tech-name">IoT Solutions</h3>
-          <p class="tech-desc">Internet of Things for connected devices and smart systems</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Sensors</span>
-            <span class="tech-tag">MQTT</span>
-            <span class="tech-tag">Edge Computing</span>
-          </div>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🥽</div>
-          <h3 class="tech-name">AR/VR</h3>
-          <p class="tech-desc">Augmented and virtual reality for immersive experiences</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Unity</span>
-            <span class="tech-tag">WebXR</span>
-            <span class="tech-tag">3D</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div id="root"></div>
 </body>
+
 </html>

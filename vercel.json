@@ -1,6 +1,6 @@
 {
-  "buildCommand": "echo 'Static site'",
-  "devCommand": "echo 'Static site'",
+  "buildCommand": "",
+  "outputDirectory": ".",
   "cleanUrls": true,
   "rewrites": [
     { "source": "/about", "destination": "/about.html" },

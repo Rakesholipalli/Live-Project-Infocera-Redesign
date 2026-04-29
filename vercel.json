@@ -1,5 +1,16 @@
 {
   "buildCommand": "echo 'Static site'",
   "devCommand": "echo 'Static site'",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/portfolio", "destination": "/portfolio.html" },
+    { "source": "/careers", "destination": "/careers.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/login", "destination": "/login.html" },
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/technologies", "destination": "/technologies.html" },
+    { "source": "/industries", "destination": "/industries.html" },
+    { "source": "/blog", "destination": "/blog.html" }
+  ]
 }

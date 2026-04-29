@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backend Connection Test - Infocera</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a1628; color: #fff; padding: 40px; }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { color: #2563eb; margin-bottom: 30px; }
+    .test-section { background: #111c32; border: 1px solid #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 20px; }
+    .test-section h2 { color: #60a5fa; margin-bottom: 20px; font-size: 1.2rem; }
+    button { background: #2563eb; color: #fff; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; margin-right: 10px; margin-bottom: 10px; }
+    button:hover { background: #1d4ed8; }
+    .result { background: #0f172a; padding: 15px; border-radius: 8px; margin-top: 15px; font-family: monospace; font-size: 14px; white-space: pre-wrap; word-wrap: break-word; }
+    .success { color: #10b981; }
+    .error { color: #ef4444; }
+    input, textarea { width: 100%; padding: 10px; margin: 8px 0; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; font-family: inherit; }
+    label { display: block; margin-top: 12px; color: #94a3b8; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔌 Backend Connection Test</h1>
+    
+    <!-- Health Check -->
+    <div class="test-section">
+      <h2>1. Health Check</h2>
+      <button onclick="testHealth()">Test Backend Connection</button>
+      <div id="health-result" class="result"></div>
+    </div>
+
+    <!-- Contact Form Test -->
+    <div class="test-section">
+      <h2>2. Contact Form Submission</h2>
+      <label>First Name</label>
+      <input type="text" id="firstName" value="John" />
+      
+      <label>Last Name</label>
+      <input type="text" id="lastName" value="Doe" />
+      
+      <label>Email</label>
+      <input type="email" id="email" value="john.doe@example.com" />
+      
+      <label>Phone</label>
+      <input type="tel" id="phone" value="+91-9999999999" />
+      
+      <label>Message</label>
+      <textarea id="message" rows="4">I'm interested in your web development services.</textarea>
+      
+      <button onclick="testContactForm()">Submit Contact Form</button>
+      <div id="contact-result" class="result"></div>
+    </div>
+
+    <!-- User Registration Test -->
+    <div class="test-section">
+      <h2>3. User Registration</h2>
+      <label>First Name</label>
+      <input type="text" id="regFirstName" value="Jane" />
+      
+      <label>Last Name</label>
+      <input type="text" id="regLastName" value="Smith" />
+      
+      <label>Email</label>
+      <input type="email" id="regEmail" value="jane.smith@example.com" />
+      
+      <label>Password</label>
+      <input type="password" id="regPassword" value="password123" />
+      
+      <button onclick="testRegistration()">Register User</button>
+      <div id="register-result" class="result"></div>
+    </div>
+
+    <!-- User Login Test -->
+    <div class="test-section">
+      <h2>4. User Login</h2>
+      <label>Email</label>
+      <input type="email" id="loginEmail" value="jane.smith@example.com" />
+      
+      <label>Password</label>
+      <input type="password" id="loginPassword" value="password123" />
+      
+      <button onclick="testLogin()">Login</button>
+      <div id="login-result" class="result"></div>
+    </div>
+  </div>
+
+  <script src="assets/api-client.js"></script>
+  <script>
+    // Test Health Check
+    async function testHealth() {
+      const resultDiv = document.getElementById('health-result');
+      resultDiv.innerHTML = '⏳ Testing connection...';
+      
+      try {
+        const response = await fetch('http://localhost:5000/api/health');
+        const data = await response.json();
+        resultDiv.innerHTML = `<span class="success">✅ SUCCESS</span>\n${JSON.stringify(data, null, 2)}`;
+      } catch (error) {
+        resultDiv.innerHTML = `<span class="error">❌ ERROR</span>\n${error.message}\n\nMake sure backend is running:\ncd backend && npm run dev`;
+      }
+    }
+
+    // Test Contact Form
+    async function testContactForm() {
+      const resultDiv = document.getElementById('contact-result');
+      resultDiv.innerHTML = '⏳ Submitting...';
+      
+      const data = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value
+      };
+      
+      try {
+        const result = await window.API.contact.submit(data);
+        resultDiv.innerHTML = `<span class="success">✅ SUCCESS</span>\n${JSON.stringify(result, null, 2)}`;
+      } catch (error) {
+        resultDiv.innerHTML = `<span class="error">❌ ERROR</span>\n${error.message}`;
+      }
+    }
+
+    // Test Registration
+    async function testRegistration() {
+      const resultDiv = document.getElementById('register-result');
+      resultDiv.innerHTML = '⏳ Registering...';
+      
+      const data = {
+        firstName: document.getElementById('regFirstName').value,
+        lastName: document.getElementById('regLastName').value,
+        email: document.getElementById('regEmail').value,
+        password: document.getElementById('regPassword').value
+      };
+      
+      try {
+        const result = await window.API.auth.register(data);
+        resultDiv.innerHTML = `<span class="success">✅ SUCCESS</span>\n${JSON.stringify(result, null, 2)}`;
+      } catch (error) {
+        resultDiv.innerHTML = `<span class="error">❌ ERROR</span>\n${error.message}`;
+      }
+    }
+
+    // Test Login
+    async function testLogin() {
+      const resultDiv = document.getElementById('login-result');
+      resultDiv.innerHTML = '⏳ Logging in...';
+      
+      const data = {
+        email: document.getElementById('loginEmail').value,
+        password: document.getElementById('loginPassword').value
+      };
+      
+      try {
+        const result = await window.API.auth.login(data);
+        resultDiv.innerHTML = `<span class="success">✅ SUCCESS</span>\n${JSON.stringify(result, null, 2)}\n\nToken saved to localStorage!`;
+        localStorage.setItem('token', result.token);
+      } catch (error) {
+        resultDiv.innerHTML = `<span class="error">❌ ERROR</span>\n${error.message}`;
+      }
+    }
+
+    // Auto-test on load
+    window.addEventListener('load', () => {
+      setTimeout(testHealth, 500);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Infocera IT</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a1628; color: #fff; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .container { max-width: 450px; width: 100%; padding: 20px; }
+    .card { background: #111c32; border: 1px solid #1e293b; border-radius: 16px; padding: 40px; }
+    h1 { color: #2563eb; margin-bottom: 10px; text-align: center; }
+    p { color: #94a3b8; text-align: center; margin-bottom: 30px; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; margin-bottom: 8px; color: #cbd5e1; font-size: 14px; font-weight: 500; }
+    input { width: 100%; padding: 12px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: #fff; font-size: 14px; }
+    input:focus { outline: none; border-color: #2563eb; }
+    .btn { width: 100%; padding: 14px; background: linear-gradient(to right, #2563eb, #9333ea); color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 10px; }
+    .btn:hover { opacity: 0.9; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .message { padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: center; }
+    .success { background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; color: #10b981; }
+    .error { background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #ef4444; }
+    .toggle { text-align: center; margin-top: 20px; color: #94a3b8; }
+    .toggle a { color: #2563eb; text-decoration: none; cursor: pointer; }
+    .toggle a:hover { text-decoration: underline; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Welcome to Infocera</h1>
+      <p id="subtitle">Sign in to your account</p>
+      
+      <div id="message" class="message hidden"></div>
+      
+      <!-- Login Form -->
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn" id="loginBtn">Sign In</button>
+      </form>
+      
+      <!-- Register Form -->
+      <form id="registerForm" class="hidden">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" id="regFirstName" required placeholder="John">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" id="regLastName" required placeholder="Doe">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="regEmail" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="regPassword" required placeholder="••••••••" minlength="6">
+        </div>
+        <button type="submit" class="btn" id="registerBtn">Create Account</button>
+      </form>
+      
+      <div class="toggle">
+        <span id="toggleText">Don't have an account?</span>
+        <a id="toggleLink">Create Account</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/api-client.js"></script>
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const toggleLink = document.getElementById('toggleLink');
+    const toggleText = document.getElementById('toggleText');
+    const subtitle = document.getElementById('subtitle');
+    const messageDiv = document.getElementById('message');
+    
+    let isLogin = true;
+    
+    // Toggle between login and register
+    toggleLink.addEventListener('click', () => {
+      isLogin = !isLogin;
+      if (isLogin) {
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+        subtitle.textContent = 'Sign in to your account';
+        toggleText.textContent = "Don't have an account?";
+        toggleLink.textContent = 'Create Account';
+      } else {
+        loginForm.classList.add('hidden');
+        registerForm.classList.show();
+        subtitle.textContent = 'Create your account';
+        toggleText.textContent = 'Already have an account?';
+        toggleLink.textContent = 'Sign In';
+      }
+      hideMessage();
+    });
+    
+    // Show message
+    function showMessage(text, type) {
+      messageDiv.textContent = text;
+      messageDiv.className = `message ${type}`;
+      messageDiv.classList.remove('hidden');
+    }
+    
+    function hideMessage() {
+      messageDiv.classList.add('hidden');
+    }
+    
+    // Handle login
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('loginBtn');
+      btn.disabled = true;
+      btn.textContent = 'Signing in...';
+      hideMessage();
+      
+      try {
+        const result = await window.API.auth.login({
+          email: document.getElementById('loginEmail').value,
+          password: document.getElementById('loginPassword').value
+        });
+        
+        showMessage('✅ Login successful! Redirecting...', 'success');
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 1500);
+      } catch (error) {
+        showMessage('❌ ' + error.message, 'error');
+        btn.disabled = false;
+        btn.textContent = 'Sign In';
+      }
+    });
+    
+    // Handle register
+    registerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('registerBtn');
+      btn.disabled = true;
+      btn.textContent = 'Creating account...';
+      hideMessage();
+      
+      try {
+        const result = await window.API.auth.register({
+          firstName: document.getElementById('regFirstName').value,
+          lastName: document.getElementById('regLastName').value,
+          email: document.getElementById('regEmail').value,
+          password: document.getElementById('regPassword').value
+        });
+        
+        showMessage('✅ Account created! Redirecting...', 'success');
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 1500);
+      } catch (error) {
+        showMessage('❌ ' + error.message, 'error');
+        btn.disabled = false;
+        btn.textContent = 'Create Account';
+      }
+    });
+  </script>
+</body>
+</html>

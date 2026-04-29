@@ -7,7 +7,6 @@
     { "source": "/portfolio", "destination": "/portfolio.html" },
     { "source": "/careers", "destination": "/careers.html" },
     { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/contact-working", "destination": "/contact-working.html" },
     { "source": "/login", "destination": "/login.html" },
     { "source": "/login-working", "destination": "/login-working.html" },
     { "source": "/test-backend", "destination": "/test-backend.html" },

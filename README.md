@@ -305,7 +305,20 @@ Your full-stack Infocera website is running with:
 - ✅ Contact Forms
 - ✅ User Management
 
-**Just open:** http://localhost:3000
+## 🌐 Live Production URLs
+
+- **Frontend:** https://live-project-infocera-redesign.vercel.app
+- **Backend:** https://live-project-infocera-redesign.onrender.com
+- **Contact Form:** https://live-project-infocera-redesign.vercel.app/contact-working
+- **Login/Register:** https://live-project-infocera-redesign.vercel.app/login-working
+- **Test Backend:** https://live-project-infocera-redesign.vercel.app/test-backend
+
+## 💻 Local Development URLs
+
+- **Frontend:** http://localhost:3000
+- **Backend:** http://localhost:5000
+
+**Just open:** http://localhost:3000 (local) or https://live-project-infocera-redesign.vercel.app (production)
 
 **Enjoy! 🎉**
 

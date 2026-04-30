@@ -86,11 +86,16 @@
         // Mark as processed
         input.dataset.toggleAdded = 'true';
         
-        // Ensure parent is positioned
-        const parent = input.parentElement;
-        if (window.getComputedStyle(parent).position === 'static') {
-          parent.style.position = 'relative';
-        }
+        // Create wrapper div
+        const wrapper = document.createElement('div');
+        wrapper.style.position = 'relative';
+        wrapper.style.display = 'inline-block';
+        wrapper.style.width = '100%';
+        
+        // Insert wrapper before input
+        input.parentNode.insertBefore(wrapper, input);
+        // Move input into wrapper
+        wrapper.appendChild(input);
         
         // Create toggle button
         const toggleBtn = document.createElement('button');
@@ -111,7 +116,7 @@
           transform: 'translateY(-50%)',
           background: 'none',
           border: 'none',
-          color: '#94a3b8',
+          color: '#64748b',
           cursor: 'pointer',
           padding: '4px',
           display: 'flex',
@@ -120,12 +125,14 @@
           width: '28px',
           height: '28px',
           zIndex: '10',
-          transition: 'color 0.2s'
+          transition: 'color 0.2s',
+          pointerEvents: 'auto'
         });
         
         // Toggle functionality
         toggleBtn.addEventListener('click', (e) => {
           e.preventDefault();
+          e.stopPropagation();
           
           if (input.type === 'password') {
             input.type = 'text';
@@ -155,11 +162,9 @@
         
         // Add padding to input
         input.style.paddingRight = '45px';
-        input.style.position = 'relative';
-        input.style.zIndex = '1';
         
-        // Append button
-        parent.appendChild(toggleBtn);
+        // Append button to wrapper
+        wrapper.appendChild(toggleBtn);
       });
     }
     

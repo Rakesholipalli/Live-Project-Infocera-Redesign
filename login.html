@@ -76,8 +76,7 @@
   
   <!-- Password Toggle Script -->
   <script>
-    // Use MutationObserver instead of setTimeout for reliability
-    const observer = new MutationObserver(() => {
+    function addPasswordToggles() {
       const passwordInputs = document.querySelectorAll('input[type="password"]');
       
       passwordInputs.forEach(input => {
@@ -162,9 +161,21 @@
         // Append button
         parent.appendChild(toggleBtn);
       });
-    });
+    }
     
-    // Start observing
+    // Try immediately
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', addPasswordToggles);
+    } else {
+      addPasswordToggles();
+    }
+    
+    // Also try after delay for React
+    setTimeout(addPasswordToggles, 1000);
+    setTimeout(addPasswordToggles, 2000);
+    
+    // Use MutationObserver for dynamic content
+    const observer = new MutationObserver(addPasswordToggles);
     observer.observe(document.body, {
       childList: true,
       subtree: true

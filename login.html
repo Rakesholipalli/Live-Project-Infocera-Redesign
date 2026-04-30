@@ -7,17 +7,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Infocera IT</title>
   <!-- GLOBAL RESPONSIVE OVERRIDES -->
-  
   <style>
     @media (max-width: 500px) {
       section h1 { font-size: 1.15rem !important; margin-top: 60px !important; position: relative !important; transform: none !important; opacity: 1 !important; visibility: visible !important; }
       section .inline-flex, section [class*="badge"] { margin-bottom: 30px !important; position: relative !important; display: inline-flex !important; transform: scale(0.85) !important; opacity: 1 !important; visibility: visible !important; }
     }
+    /* FIX: Make input text visible */
     input, textarea {
       color: #1e293b !important;
     }
     input::placeholder, textarea::placeholder {
       color: #94a3b8 !important;
+    }
+    /* Password toggle button styling */
+    .password-toggle {
+      position: absolute !important;
+      right: 12px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      background: none !important;
+      border: none !important;
+      color: #94a3b8 !important;
+      cursor: pointer !important;
+      padding: 4px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 24px !important;
+      height: 24px !important;
+      z-index: 1000 !important;
+      transition: color 0.2s !important;
+      pointer-events: auto !important;
+    }
+    .password-toggle:hover {
+      color: #fff !important;
+    }
+    input[type="password"], input[type="text"].was-password {
+      padding-right: 45px !important;
     }
   </style>
   <meta name="description"
@@ -47,6 +73,7 @@
   <script src="assets/patch_navbar4a65.js?v=DesktopOverlapFix"></script>
   <script src="assets/patch_testimonials93ac.js?v=MobileFix"></script>
   <script src="assets/patch_stats93ac.js?v=MobileFix"></script>
+  
   <!-- Password Toggle Script -->
   <script>
     // Wait for React to render
